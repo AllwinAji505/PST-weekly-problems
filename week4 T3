@@ -1,0 +1,24 @@
+    public static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
+        
+        int count1=0;
+        int count2=0;
+        for(int i=0;i<3;i++){
+            int alice=a.get(i);
+            int bob=b.get(i);
+            if(alice>bob){
+                count1++;
+            }
+            else if(alice<bob){
+                count2++;
+            }else{
+                count1=count1+0;
+                count2=count2+0;
+            }
+        }
+        List<Integer> result=new ArrayList<Integer>();
+        result.add(count1);
+        result.add(count2);
+        return result;
+
+
+    }
