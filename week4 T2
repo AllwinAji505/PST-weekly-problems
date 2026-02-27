@@ -1,0 +1,55 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    public static boolean isLapindrome(String S){
+        int s=S.length();
+        int mid=s/2;
+        
+        int[] Freq1=new int[26];
+        int[] Freq2=new int[26];
+        
+        for(int i=0;i<mid;i++){
+            Freq1[S.charAt(i)-'a']++;
+        }
+        int start;
+        if(s%2!=0){
+            start=mid+1;
+        }else{
+            start=mid;
+        }
+        for(int j=start;j<s;j++){
+            Freq2[S.charAt(j)-'a']++;
+        }
+        for(int k=0;k<26;k++){
+            if(Freq1[k]!=Freq2[k]){
+                return false;
+            }
+        }
+        return true;
+        
+    }
+    
+        
+    
+    
+    
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		int count1=0;
+		int count2=0;
+		Scanner inp=new Scanner(System.in);
+		int T=inp.nextInt();
+		inp.nextLine();
+        while (T-- > 0) {
+            String S = inp.nextLine();
+            if (isLapindrome(S))
+                System.out.println("YES");
+            else
+                System.out.println("NO");
+        }
+	}
+}
