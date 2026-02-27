@@ -1,0 +1,21 @@
+    public static String timeConversion(String s) {
+        int a=Integer.parseInt(s.substring(0,2));
+        String result=new String();
+        if(s.substring(s.length() - 2).equals("PM")){
+            if(!s.substring(0,2).equals("12")){
+                String b=String.valueOf(a+12);
+            
+                result=s.replace(s.substring(0,2),b);
+            }else{
+                result=s;
+            }
+        }
+        if(s.substring(s.length() - 2).equals("AM")){
+            if(s.substring(0,2).equals("12")){
+                result=s.replace(s.substring(0,2), "00");
+            }else{
+                result=s;
+            }
+        }
+        return result.substring(0,8);
+    }
